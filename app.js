@@ -14,7 +14,9 @@ const app = express();
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://qeven03:mexico10@cluster0.9ri7c.mongodb.net/foot_inventory?retryWrites=true&w=majority&appName=Cluster0";
+const dev_db_url =
+  "mongodb+srv://qeven03:mexico10@cluster0.9ri7c.mongodb.net/foot_inventory?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 main().catch((err) => console.log(err));
 async function main() {
